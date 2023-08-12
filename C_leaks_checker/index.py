@@ -12,6 +12,9 @@ static void _free(void* c, char *file, int line)
 	printf("FREE: %p, LINE = %i, FILE = %s\n", c, line, file);
 	return (free(c));
 }
+
+#define malloc(c) _malloc(c, __FILE__, __LINE__)
+#define free(c) _free(c, __FILE__, __LINE__)
 '''
 
 allocated = {}
